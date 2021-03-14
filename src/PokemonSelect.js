@@ -7,6 +7,7 @@ function PokemonSelect({ add, pokemon = pokemonList }) {
   const [pokeIdx, setPokeIdx] = useState(0);
   const handleChange = evt => {
     setPokeIdx(evt.target.value);
+    localStorage.setItem("pokemon", pokemon[pokeIdx]);
   };
 
   return (
@@ -18,7 +19,7 @@ function PokemonSelect({ add, pokemon = pokemonList }) {
           </option>
         ))}
       </select>
-      <button onClick={() => add(pokemon[pokeIdx])}>Catch one!</button>
+      <button onClick={add}>Catch one!</button>
       <button onClick={() => add(choice(pokemon))}>I'm feeling lucky</button>
     </div>
   );
